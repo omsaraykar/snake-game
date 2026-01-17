@@ -18,12 +18,15 @@ const snake = {
     direction: Direction.UP
 }
 
+let food = { x: Math.floor(Math.random() * width), y: Math.floor(Math.random() * height) };
+let isEaten = false;
+
 function main() {
     createBoard();
 
     setInterval(() => {
         render();
-    }, 300);
+    }, 500);
 
     listenForKeyPresses();
 }
@@ -57,6 +60,18 @@ function render() {
         moveSnake(-1, 0);
     } else if (direction === Direction.RIGHT) {
         moveSnake(1, 0);
+    }
+
+    const foodIndex = food.x + food.y * width;
+    cells[foodIndex].classList.add("food");
+
+    const head = snake.body[0];
+    if (head.x === food.x && head.y === food.y) {
+        isEaten = true;
+        cells[foodIndex].classList.remove("food");
+        food = { x: Math.floor(Math.random() * width), y: Math.floor(Math.random() * height) };
+        const tail = snake.body[snake.body.length - 1];
+        snake.body.push({ ...tail });
     }
 }
 

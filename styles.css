@@ -14,6 +14,7 @@ html, body {
     --primary-color: #121212;
     --secondary-color: #212121;
     --snake-color: #4caf50;
+    --food-color: #f44336;
     
     /* Font Settings */
     --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -66,4 +67,8 @@ html {
 
 .cell.snake {
     background-color: var(--snake-color);
+}
+
+.cell.food {
+    background-color: var(--food-color);
 }
