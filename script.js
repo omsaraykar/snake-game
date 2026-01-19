@@ -26,7 +26,7 @@ function main() {
 
     setInterval(() => {
         render();
-    }, 500);
+    }, 200);
 
     listenForKeyPresses();
 }
@@ -38,7 +38,6 @@ function createBoard() {
         for (let col = 0; col < width; col++) {
             const cell = document.createElement("div");
             cell.className = "cell";
-            cell.innerHTML = `${col},${row}`;
             gameBoard.appendChild(cell);
         }
     }
